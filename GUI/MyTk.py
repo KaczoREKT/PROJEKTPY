@@ -7,6 +7,8 @@ class MyTk(tk.Tk):
         super().__init__()
         self.title("Dziennik 6.6.6")
         self.geometry("1920x1080")
-        mmm = MainFrame()
-        mmm.pack()
+
+        frame = MainFrame()
+        frame.pack()
+
         self.mainloop()
