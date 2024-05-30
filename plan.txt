@@ -1,0 +1,47 @@
+Powitanie
+- Lekcje
+    - Nowa lekcja
+        - Wpisz date (jeżeli data istnieje, zapytaj czy modyfikować lekcje z tą datą)
+        - Wpisz temat
+    - Zarządzaj Lekcjami (pokazuje liste poprzednich dat lekcji do modyfikacji w postaci
+    przycisków)
+    
+- Oceny
+    - Dodaj Ocenę
+        - Wybierz ucznia z listy
+        - Wybierz za co Ocena
+        - Wpisz ocene
+        - Komentarz
+    - Historia Ocen
+
+- Uczniowe
+    - Podział na klasy
+- Skrzynka pocztowa
+    - Utwórz
+        - Emaile do rodziców
+          - Emaile do uczniów
+    - Wysłane
+    - Spam (dla śmiechu)
+- Generuj raport całościowy
+
+
+
+
+
+Klasa Teacher
+
+Klasa Student
+
+Imie
+Nazwisko
+ilośćNieobecności
+Oceny[]
+Średnia ocen
+Klasa
+
+liczŚrednią()
+
+
+ŚMIESZNE.TXT
+- Dodaj czcionkę Papyrus
+- Linijka do mierzenia prącia jako jeszcze nwm co 

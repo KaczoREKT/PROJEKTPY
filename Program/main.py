@@ -1,8 +1,7 @@
 from Entities.Student import Student
-from GUI.Window import Window
-
+from GUI.MyTk import MyTk
 
 Jacek = Student("Jacek", "Debil")
-window = Window
-
+main = MyTk()
 print(Jacek.i)
+
