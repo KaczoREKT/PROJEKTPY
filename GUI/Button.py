@@ -6,7 +6,6 @@ class Button(ttk.Button):
         self.style_name = "Custom.TButton"
         self.font = (font_family, font_size)
         style = ttk.Style()
-        style.configure(self.style_name, font=self.font)
+        style.configure(self.style_name, font=self.font, padding=(20, 20))
 
-        # Inicjalizacja przycisku
         super().__init__(parent, text=text, command=command, style=self.style_name, **kwargs)

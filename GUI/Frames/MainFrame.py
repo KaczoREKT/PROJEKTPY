@@ -12,5 +12,5 @@ class MainFrame(AbstractFrame):
         self.label.pack(pady=100)
 
         self.button = Button(self, text="Nienawidzę tej pracy",
-                             command=lambda: self.showFrame(MenuFrame()))
+                             command=lambda: self.nextFrame(MenuFrame()))
         self.button.pack(pady=20, side=tk.TOP)
