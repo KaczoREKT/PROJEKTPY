@@ -1,0 +1,4 @@
+"Anna", "Barbara", "Cecylia", "Dorota", "Elżbieta", "Felicja", "Grażyna", "Hanna", "Irena", "Jadwiga",
+"Katarzyna", "Lidia", "Małgorzata", "Natalia", "Olga", "Patrycja", "Renata", "Sylwia", "Teresa", "Urszula",
+"Weronika", "Zofia", "Alicja", "Beata", "Celina", "Dagmara", "Ewelina", "Filomena", "Gabriela", "Halina",
+"Ilona", "Janina", "Klara", "Lucyna", "Monika", "Nina", "Otylia", "Paulina", "Róża", "Sabina"

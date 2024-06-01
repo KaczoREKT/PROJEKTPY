@@ -3,6 +3,7 @@ Powitanie
     - Nowa lekcja
         - Wpisz date (jeżeli data istnieje, zapytaj czy modyfikować lekcje z tą datą)
         - Wpisz temat
+    
     - Zarządzaj Lekcjami (pokazuje liste poprzednich dat lekcji do modyfikacji w postaci
     przycisków)
     
