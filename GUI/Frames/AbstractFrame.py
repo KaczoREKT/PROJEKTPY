@@ -27,5 +27,4 @@ class AbstractFrame(ttk.Frame):
         
     def getFrameList(self):
         return AbstractFrame._frameList
-
-
+    

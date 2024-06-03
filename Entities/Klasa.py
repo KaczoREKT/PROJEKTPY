@@ -45,5 +45,6 @@ class Klasa:
         self.numer_klasy = numer_klasy
         
 
-    def dodajUcznia(self):
-        pass
+    def dodajUcznia(self, student):
+        self.listaUczniow.append(student)
+        
