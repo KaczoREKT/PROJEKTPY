@@ -9,7 +9,7 @@ def generuj_studenta(plec):
     plec_imie_txt = None
     plec_nazwisko_txt = None
 
-    match (plec):
+    match plec:
         case 'M':
             plec_imie_txt = 'imionafacetuf.txt'
             plec_nazwisko_txt = "nazwiskafacetuf.txt"
@@ -35,14 +35,15 @@ def generuj_studenta(plec):
 
 class Klasa:
     def __init__(self, numer_klasy, ilosc_kobiet, ilosc_mezczyzn):
-        listaUczniow = []
+        self.listaUczniow = []
         for i in range(ilosc_kobiet):
             nowy_student = generuj_studenta('K')
-            listaUczniow.append(nowy_student)
+            self.listaUczniow.append(nowy_student)
         for i in range(ilosc_mezczyzn):
             nowy_student = generuj_studenta('M')
-            listaUczniow.append(nowy_student)
+            self.listaUczniow.append(nowy_student)
         self.numer_klasy = numer_klasy
+        
 
     def dodajUcznia(self):
         pass

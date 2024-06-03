@@ -1,4 +1,6 @@
 import tkinter as tk
+
+from Entities.Klasa import Klasa
 from GUI.Frames.MainFrame import MainFrame
 
 

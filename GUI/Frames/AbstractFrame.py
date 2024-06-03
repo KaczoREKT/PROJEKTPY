@@ -4,7 +4,7 @@ import tkinter as tk
 
 
 class AbstractFrame(ttk.Frame):
-    _lastFrame = None
+    _frameList = []
 
 
     def __init__(self):
@@ -15,13 +15,17 @@ class AbstractFrame(ttk.Frame):
         self.button.pack(pady=self.pady, padx=self.padx, side=tk.BOTTOM)
 
     def previousFrame(self):
-        if AbstractFrame._lastFrame is not None:
+        if AbstractFrame._frameList[0] is not None:
             self.pack_forget()
-            AbstractFrame._lastFrame.pack()
+            AbstractFrame._frameList[-1].pack()
+            AbstractFrame._frameList.pop(-1)
 
     def nextFrame(self, frameToShow):
-        AbstractFrame._lastFrame = self
+        AbstractFrame._frameList.append(self)
         self.pack_forget()
         frameToShow.pack()
-            
+        
+    def getFrameList(self):
+        return AbstractFrame._frameList
+
 

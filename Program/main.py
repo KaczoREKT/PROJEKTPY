@@ -8,6 +8,6 @@ Jacek = Student("Jacek", "Debil")
 Maja = Student("Maja", "Tomaszuk")
 main = MyTk()
 
-klasy = [Klasa("2B",10,20), Klasa("2C",20,1)]
+
 
 print(Jacek.imie)

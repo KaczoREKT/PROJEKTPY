@@ -3,7 +3,6 @@ import tkinter as tk
 from GUI.Label import Label
 from GUI.Button import Button
 from GUI.Frames.AbstractFrame import AbstractFrame
-
 from GUI.Frames.LekcjaFrame import LekcjaFrame
 from GUI.Frames.OcenyFrame import OcenyFrame
 from GUI.Frames.UczniowieFrame import UczniowieFrame
