@@ -48,3 +48,8 @@ class Klasa:
     def dodajUcznia(self, student):
         self.listaUczniow.append(student)
         
+    def getListaUczniow(self):
+        return self.listaUczniow
+    def getNumerKlasy(self):
+        return self.numer_klasy
+        
