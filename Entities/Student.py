@@ -50,7 +50,7 @@ class Student:
                 suma += int(ocena.getWartość())
             return suma / len(self.oceny)
         else:
-            pass
+            return None
 
     def dodajNieobecnosc(self):
         self.nieobecnosci += 1
@@ -67,11 +67,10 @@ class Student:
 
     def czyZagrozony(self):
         srednia = Student.liczSrednia(self)
-        if srednia is not None:
-            if srednia < 3 or self.nieobecnosci > 2:
-                self.zagrozenie = "ZAGROŻENIE"
-            else:
-                self.zagrozenie = "CZYSTY"
+        if srednia is not None and srednia < 3 or self.nieobecnosci > 2:
+            self.zagrozenie = "ZAGROŻENIE"
+        else:
+            self.zagrozenie = "CZYSTY"
                 
     def getZagrozenie(self):
         return self.zagrozenie

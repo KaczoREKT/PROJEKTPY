@@ -96,7 +96,6 @@ class NoweOceny(AbstractFrame):
                     nowaOcena = Ocena(wybranyRodzajOceny, wybranaOcena, wybranaWaga, datetime.now().date())
                     student.dodajOcene(nowaOcena)
                     HistoriaOcen.dodajOcene(nowaOcena)
-                    
 
                     tk.messagebox.showinfo("Informacja", str("Dodano ocenę dla " + credencials))
                     tk.messagebox.showinfo("Informacja", student.getOceny())
@@ -105,35 +104,52 @@ class NoweOceny(AbstractFrame):
 
 class HistoriaOcen(AbstractFrame):
     _lista_historii_ocen = []
+
     @staticmethod
     def dodajOcene(ocena):
-        HistoriaOcen._lista_historii_ocen.append(ocena)
-    
-    def __init__(self):
-        super().__init__()
-        self.oceny_listbox = tk.Listbox(self, width=50)
-        self.oceny_listbox.pack(side=tk.LEFT)
+        HistoriaOcen._lista_historii_ocen.append(ocena) 
+ 
+    def edit_ocena(self):
+        print("dupa")
+        selected_index = self.oceny_listbox.curselection()
+        if not selected_index:
+            tk.messagebox.showwarning("Brak wyboru", "Proszę wybrać ocenę do edycji.")
+            return
+
+        selected_item = self.oceny_listbox.get(selected_index)
+        student_name, ocena_details = selected_item.split(" Ocena: ")
+        ocena_value, ocena_kategoria = ocena_details.split(" za: ")
+
+        for klasa in Dziennik.pobierzKlasy(self):
+            for student in klasa.listaUczniow:
+                if student.getCredencials() == student_name:
+                    for ocena in student.getOceny():
+                        if ocena.getWartość() == ocena_value and ocena.getKategoria() == ocena_kategoria:
+                            new_value = tk.simpledialog.askstring("Edycja oceny",
+                                                                  f"Nowa wartość oceny dla {student_name}:")
+                            if new_value:
+                                ocena.setWartość(new_value)
+                                self.update_oceny_listbox()
+                                tk.messagebox.showinfo("Sukces", "Ocena została zaktualizowana.")
+                            return
+    def update_oceny_listbox(self):
         self.oceny_listbox.delete(0, tk.END)
         for klasa in Dziennik.pobierzKlasy(self):
             for student in klasa.listaUczniow:
                 for ocena in student.getOceny():
-                    self.oceny_listbox.insert(tk.END, str(student.getCredencials() + " Ocena: " 
+                    self.oceny_listbox.insert(tk.END, str(student.getCredencials() + " Ocena: "
                                                           + ocena.getWartość() + " za: " + ocena.getKategoria()))
-                                                    
-    
+    def __init__(self):
+        super().__init__()
+        self.oceny_listbox = tk.Listbox(self, width=50)
+        self.oceny_listbox.pack(side=tk.LEFT)
+        self.update_oceny_listbox()
+
+
         self.scrollbar = tk.Scrollbar(self, orient=tk.VERTICAL)
         self.scrollbar.config(command=self.oceny_listbox.yview)
         self.scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
-    
+        self.edit_button = tk.Button(self, text="Edytuj ocenę", command= self.edit_ocena)
+        self.edit_button.pack(side=tk.BOTTOM)
+
         self.oceny_listbox.config(yscrollcommand=self.scrollbar.set)
-        
-    
-        
-
-   
-    
-
-
-
-        
- 

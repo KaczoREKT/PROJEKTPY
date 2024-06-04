@@ -21,21 +21,32 @@ class UczniowieFrame(AbstractFrame):
 
 
 class KlasaFrame(AbstractFrame):
+    def eksmisja(self):
+        pass
+        # Funkcja która usunie studenta z uczelni tak o 
+
     def __init__(self, klasa):
         self.klasa = klasa
         super().__init__()
         self.listaklas = Dziennik.pobierzKlasy(self)
 
-        self.tree = ttk.Treeview(self, columns=("imie", "nazwisko", "obecności", "nieobecności", "zagrożenie"), show='headings')
+        self.tree = ttk.Treeview(self,
+                                 columns=("imie", "nazwisko", "obecności", "nieobecności", "średnia", "zagrożenie"),
+                                 show='headings')
         self.tree.heading("imie", text="Imię")
         self.tree.heading("nazwisko", text="Nazwisko")
         self.tree.heading("obecności", text="Obecności")
         self.tree.heading("nieobecności", text="Nieobecności")
+        self.tree.heading("średnia", text="Średnia")
         self.tree.heading("zagrożenie", text="Zagrożenie")
         self.tree.pack(fill=tk.BOTH, expand=True)
+
+        self.button = Button(self, text="EKSTERMINATOR STUDENTA", command=lambda: self.eksmisja())
+        # Zapakuj gdy będzie gotowy
 
         for klasa in self.listaklas:
             if klasa.getNumerKlasy() == self.klasa:
                 for student in klasa.getListaUczniow():
                     self.tree.insert("", "end", values=(student.getImie(), student.getNazwisko(),
-                                                        student.getObecnosci(), student.getNieobecnosci(), student.getZagrozenie()))
+                                                        student.getObecnosci(), student.getNieobecnosci(), student.liczSrednia(),
+                                                        student.getZagrozenie()))

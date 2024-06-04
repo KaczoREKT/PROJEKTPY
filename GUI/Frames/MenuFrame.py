@@ -1,5 +1,6 @@
 import tkinter as tk
 
+from GUI.Frames.StatystykiFrame import StatystykiFrame
 from GUI.Label import Label
 from GUI.Button import Button
 from GUI.Frames.AbstractFrame import AbstractFrame
@@ -30,3 +31,6 @@ class MenuFrame(AbstractFrame):
 
         self.button5 = Button(self, text="Generuj\n Raport", command=lambda: self.nextFrame(RaportFrame()))
         self.button5.pack(pady=self.pady, padx=self.padx, side=tk.LEFT)
+
+        self.button6 = Button(self, text="Generuj\n Statystyki", command=lambda: self.nextFrame(StatystykiFrame()))
+        self.button6.pack(pady=self.pady, padx=self.padx, side=tk.LEFT)

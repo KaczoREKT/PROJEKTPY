@@ -9,6 +9,8 @@ class Ocena:
         return self.kategoria
     def getWartość(self):
         return self.wartość
+    def setWartość(self, wartosc):
+        self.wartość = wartosc
     def getWaga(self):
         return self.waga
     def getData(self):
