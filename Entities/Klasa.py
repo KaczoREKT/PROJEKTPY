@@ -56,44 +56,25 @@ class Klasa:
         return self.numer_klasy
 
     def generuj_statystyki(self):
-        # Prepare lists to collect data
-        student_data = []
+        srednie_oceny = []
+        nieobecnosci = []
+        obecnosci = []
         for student in self.listaUczniow:
-            oceny = student.getOceny()
             srednia_ocen = student.liczSrednia()
-            nieobecnosci = student.getNieobecnosci()
-            obecnosci = student.getObecnosci()
-            zagrozenie = student.getZagrozenie()
+            srednie_oceny.append(srednia_ocen)
+            nieobecnosci.append(student.getNieobecnosci())
+            obecnosci.append(student.getObecnosci())
 
-            student_data.append({
-                'Student': student.getCredencials(),
-                'Srednia_Ocen': srednia_ocen,
-                'Nieobecnosci': nieobecnosci,
-                'Obecnosci': obecnosci,
-                'Zagrozenie': zagrozenie
-            })
-
-        # Create a DataFrame from the collected data
-        df = pd.DataFrame(student_data)
-
-        # Group by student and compute statistics
-        student_stats = df.groupby('Student').agg(
-            Srednia_Ocen=pd.NamedAgg(column='Srednia_Ocen', aggfunc='mean'),
-            Nieobecnosci=pd.NamedAgg(column='Nieobecnosci', aggfunc='sum'),
-            Obecnosci=pd.NamedAgg(column='Obecnosci', aggfunc='sum'),
-            Zagrozenie=pd.NamedAgg(column='Zagrozenie', aggfunc=lambda x: x.iloc[0])  # Assuming 'Zagrozenie' is a single value per student
-        ).reset_index()
-
-        # Compute overall class statistics
+        # Calculate class-wide statistics
         class_stats = {
-            'Srednia_Ocen': df['Srednia_Ocen'].mean(),
-            'Nieobecnosci': df['Nieobecnosci'].sum(),
-            'Obecnosci': df['Obecnosci'].sum(),
-            'Zagrozenie': 'ZAGROŻENIE' if df['Zagrozenie'].str.contains('ZAGROŻENIE').any() else 'CZYSTY'
+            'Srednia_Ocen': {'value': sum(srednia_ocen for srednia_ocen in srednie_oceny if srednia_ocen is not None) / len(srednie_oceny) if any(srednie_oceny) else 0},
+            'Srednia_Nieobecnosci': {'value': sum(nieobecnosci) / len(nieobecnosci) if nieobecnosci else 0},
+            'Obecnosci': {'value': sum(obecnosci) if obecnosci else 0},
+            'Nieobecnosci': {'value': sum(nieobecnosci) if nieobecnosci else 0}
+         
         }
 
         return {
-            'student_stats': student_stats,
             'class_stats': class_stats
         }
         

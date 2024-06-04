@@ -13,7 +13,7 @@ xlsx.
  Wystawianie zagrożeń gdy student ma więcej niż 2 nieobecnści lub ma średnią poniżej 3
 !!!  Przeglądanie profil każdego ucznia, gdzie będzie mógł zobaczyć historię ocen, obecności, uwag,
 oraz inne informacje.
-!!! Dodaj funkcję generowania statystyk i analizy danych dotyczących poszczególnych uczniów jak i
+ Dodaj funkcję generowania statystyk i analizy danych dotyczących poszczególnych uczniów jak i
 całej klasy.
  Dodaj funkcję która będzie na bieżąco liczyć średnią ocen ucznia
  Utworzenie szablonu dziennika (10 uczniów z przykładowymi ocenami i obecnościami).
